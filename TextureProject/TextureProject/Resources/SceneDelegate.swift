@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScence
         
         // rootVC 지정
-        let rootViewController = ViewController()
-        window?.rootViewController = rootViewController
+        let tab = TabBarController()
+        window?.rootViewController = tab
         window?.makeKeyAndVisible()
     }
     

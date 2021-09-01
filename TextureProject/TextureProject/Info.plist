@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>AppleSDGothicNeoSB.ttf</string>
 		<string>AppleSDGothicNeoB.ttf</string>
 		<string>AppleSDGothicNeoR.ttf</string>
 		<string>AppleSDGothicNeoM.ttf</string>
