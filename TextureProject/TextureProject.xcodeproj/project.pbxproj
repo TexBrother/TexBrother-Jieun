@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3360BBE526E2522800CF2CC1 /* KakaoFriendTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360BBE426E2522800CF2CC1 /* KakaoFriendTableNode.swift */; };
 		3383C2A326DF66520037AD54 /* KakaoFriendCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383C2A226DF66520037AD54 /* KakaoFriendCellNode.swift */; };
 		3383C2A526DF66A30037AD54 /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383C2A426DF66A30037AD54 /* FriendListModel.swift */; };
 		3383C2A726DF677E0037AD54 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3383C2A626DF67720037AD54 /* AppleSDGothicNeoSB.ttf */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3360BBE426E2522800CF2CC1 /* KakaoFriendTableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoFriendTableNode.swift; sourceTree = "<group>"; };
 		3383C2A226DF66520037AD54 /* KakaoFriendCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoFriendCellNode.swift; sourceTree = "<group>"; };
 		3383C2A426DF66A30037AD54 /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		3383C2A626DF67720037AD54 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				33A7120E26CC213500256A2A /* ApplistCellNode.swift */,
 				3383C2A226DF66520037AD54 /* KakaoFriendCellNode.swift */,
+				3360BBE426E2522800CF2CC1 /* KakaoFriendTableNode.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3360BBE526E2522800CF2CC1 /* KakaoFriendTableNode.swift in Sources */,
 				33A7121D26CC308900256A2A /* UIColor+Extension.swift in Sources */,
 				33C86F5426DF56AB00F58363 /* TabBarController.swift in Sources */,
 				33A7121926CC2FFD00256A2A /* UIFont+Extension.swift in Sources */,

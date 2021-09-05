@@ -7,9 +7,14 @@
 
 import AsyncDisplayKit
 
-class KakaoFriendVC: ASDKViewController<ASTableNode> {
-
+class KakaoFriendVC: ASDKViewController<ASDisplayNode> {
+    
     var friendList: [FriendListModel] = []
+    var tableNode: ASTableNode {
+        return node as! ASTableNode
+    }
+    
+//    var tableNodeProvider = KakaoFriendTableNode()
     
     override init() {
         super.init(node: ASTableNode())
@@ -22,11 +27,11 @@ class KakaoFriendVC: ASDKViewController<ASTableNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeFriendlists()
-        self.node.view.allowsSelection = false
-        self.node.view.separatorStyle = .none
+        tableNode.allowsSelection = false
+        tableNode.view.separatorStyle = .none
         self.node.view.backgroundColor = .white
-        self.node.delegate = self
-        self.node.dataSource = self
+        tableNode.delegate = self
+        tableNode.dataSource = self
     }
     
     func makeFriendlists() {
