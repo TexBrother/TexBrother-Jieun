@@ -20,17 +20,26 @@ class KakaoFriendCellNode: ASCellNode {
     let friendDescLabelNode = ASTextNode()
     
     //components 속성 정의
-    init(friendListModel: FriendListModel) {
+    init(friendListModel: FriendListModel, division: KakaoFriendVC.User) {
         super.init()
         automaticallyManagesSubnodes = true
         
+        switch division {
+        case .myProfile:
+            //friendNameLabelNode
+            let attrs = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeoSB00", size: 16.0), NSAttributedString.Key.foregroundColor: UIColor.black]
+            let friendNameString = NSAttributedString(string: friendListModel.friendName, attributes: attrs as [NSAttributedString.Key : Any])
+            friendNameLabelNode.attributedText = friendNameString
+            
+        case .friendProfile:
+            //friendNameLabelNode
+            let attrs = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeoSB00", size: 12.0), NSAttributedString.Key.foregroundColor: UIColor.black]
+            let friendNameString = NSAttributedString(string: friendListModel.friendName, attributes: attrs as [NSAttributedString.Key : Any])
+            friendNameLabelNode.attributedText = friendNameString
+        }
+        
         //friendImageNode
         friendImageNode.image = UIImage(named: friendListModel.friendProfileImage)
-        
-        //friendNameLabelNode
-        let attrs = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeoSB00", size: 12.0), NSAttributedString.Key.foregroundColor: UIColor.black]
-        let friendNameString = NSAttributedString(string: friendListModel.friendName, attributes: attrs as [NSAttributedString.Key : Any])
-        friendNameLabelNode.attributedText = friendNameString
         
         //friendDescLabelNode
         let attrs2 = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeoR00", size: 11.0), NSAttributedString.Key.foregroundColor: UIColor.brownGrey]
@@ -86,7 +95,7 @@ class KakaoFriendCellNode: ASCellNode {
             )
         
         return ASInsetLayoutSpec(
-            insets: UIEdgeInsets(),
+            insets: UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 0),
             child: friendImageLayout
         )
     }

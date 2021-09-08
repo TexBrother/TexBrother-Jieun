@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3360BBE526E2522800CF2CC1 /* KakaoFriendTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360BBE426E2522800CF2CC1 /* KakaoFriendTableNode.swift */; };
+		3363C43726E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3363C43626E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift */; };
 		3383C2A326DF66520037AD54 /* KakaoFriendCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383C2A226DF66520037AD54 /* KakaoFriendCellNode.swift */; };
 		3383C2A526DF66A30037AD54 /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383C2A426DF66A30037AD54 /* FriendListModel.swift */; };
 		3383C2A726DF677E0037AD54 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3383C2A626DF67720037AD54 /* AppleSDGothicNeoSB.ttf */; };
@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3360BBE426E2522800CF2CC1 /* KakaoFriendTableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoFriendTableNode.swift; sourceTree = "<group>"; };
+		3363C43626E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoFriendHeaderNode.swift; sourceTree = "<group>"; };
 		3383C2A226DF66520037AD54 /* KakaoFriendCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoFriendCellNode.swift; sourceTree = "<group>"; };
 		3383C2A426DF66A30037AD54 /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		3383C2A626DF67720037AD54 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			children = (
 				33A7120E26CC213500256A2A /* ApplistCellNode.swift */,
 				3383C2A226DF66520037AD54 /* KakaoFriendCellNode.swift */,
-				3360BBE426E2522800CF2CC1 /* KakaoFriendTableNode.swift */,
+				3363C43626E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -283,7 +283,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3360BBE526E2522800CF2CC1 /* KakaoFriendTableNode.swift in Sources */,
 				33A7121D26CC308900256A2A /* UIColor+Extension.swift in Sources */,
 				33C86F5426DF56AB00F58363 /* TabBarController.swift in Sources */,
 				33A7121926CC2FFD00256A2A /* UIFont+Extension.swift in Sources */,
@@ -295,6 +294,7 @@
 				33A7121126CC220000256A2A /* ApplistModel.swift in Sources */,
 				33A711F026CC13BA00256A2A /* AppDelegate.swift in Sources */,
 				3383C2AB26DF6CF80037AD54 /* FriendVC.swift in Sources */,
+				3363C43726E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift in Sources */,
 				33A711F226CC13BA00256A2A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +425,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = TextureProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,6 +445,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = TextureProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

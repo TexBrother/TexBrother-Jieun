@@ -9,15 +9,33 @@ import AsyncDisplayKit
 
 class KakaoFriendVC: ASDKViewController<ASDisplayNode> {
     
-    var friendList: [FriendListModel] = []
-    var tableNode: ASTableNode {
-        return node as! ASTableNode
+    enum User: Int, CaseIterable {
+        case myProfile
+        case friendProfile
     }
     
-//    var tableNodeProvider = KakaoFriendTableNode()
+    // MARK: UI
+    private lazy var tableNode: ASTableNode = {
+        let node = ASTableNode(style: .plain)
+        node.delegate = self
+        node.dataSource = self
+        node.backgroundColor = .white
+        node.allowsSelection = false
+        node.view.separatorStyle = .none
+        return node
+    }()
     
+    var headerNode = KakaoFriendHeaderNode()
+    
+    // MARK: Initializing
     override init() {
-        super.init(node: ASTableNode())
+        super.init(node: .init())
+        self.node.backgroundColor = .white
+        self.node.automaticallyManagesSubnodes = true
+        self.node.automaticallyRelayoutOnSafeAreaChanges = true
+        self.node.layoutSpecBlock = { [weak self] (node, constraintedSize) -> ASLayoutSpec in
+            return self?.layoutSpecThatFits(constraintedSize) ?? ASLayoutSpec()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -26,28 +44,26 @@ class KakaoFriendVC: ASDKViewController<ASDisplayNode> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeFriendlists()
-        tableNode.allowsSelection = false
-        tableNode.view.separatorStyle = .none
-        self.node.view.backgroundColor = .white
-        tableNode.delegate = self
-        tableNode.dataSource = self
+      //  makeFriendlists()
     }
     
-    func makeFriendlists() {
-        friendList = [
-            FriendListModel(friendProfileImage: "friendtabProfileImg", friendName: "김솝트", friendDesc: "상태메시지는 여기에"),
-            FriendListModel(friendProfileImage: "profileImage1", friendName: "안솝트", friendDesc: "배고파요"),
-            FriendListModel(friendProfileImage: "profileImage2", friendName: "최솝트", friendDesc: "피곤해요"),
-            FriendListModel(friendProfileImage: "profileImage3", friendName: "정솝트", friendDesc: "살려줘요"),
-            FriendListModel(friendProfileImage: "profileImage4", friendName: "이솝트", friendDesc: "워우워~~"),
-            FriendListModel(friendProfileImage: "profileImage5", friendName: "유솝트", friendDesc: "나는 상태메시지!"),
-            FriendListModel(friendProfileImage: "profileImage6", friendName: "박솝트", friendDesc: "배고파요"),
-            FriendListModel(friendProfileImage: "profileImage7", friendName: "박솝트", friendDesc: "배고파요"),
-            FriendListModel(friendProfileImage: "profileImage8", friendName: "박솝트", friendDesc: "배고파요"),
-            FriendListModel(friendProfileImage: "profileImage9", friendName: "박솝트", friendDesc: "배고파요"),
-            FriendListModel(friendProfileImage: "profileImage10", friendName: "박솝트", friendDesc: "배고파요"),
-        ]
+    // MARK: Layout
+    private func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+        let contentLayout = ASStackLayoutSpec (
+            direction: .vertical,
+            spacing: 0.0,
+            justifyContent: .start,
+            alignItems: .stretch,
+            children: [
+                headerNode,
+                tableNode.styled({
+                    $0.flexGrow = 1.0
+                })
+            ]
+        )
+        let safeAreaInset: UIEdgeInsets = self.view.safeAreaInsets
+        return ASInsetLayoutSpec (
+            insets: safeAreaInset, child: contentLayout)
     }
 }
 
@@ -67,10 +83,10 @@ extension KakaoFriendVC: ASTableDelegate, ASTableDataSource {
     
     func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
         if indexPath.section == 0 {
-            return KakaoFriendCellNode(friendListModel: friendList[0])
+            return KakaoFriendCellNode(friendListModel: friendList[0], division: .myProfile)
         }
         else {
-            return KakaoFriendCellNode(friendListModel: friendList[indexPath.row + 1])
+            return KakaoFriendCellNode(friendListModel: friendList[indexPath.row + 1], division: .friendProfile)
         }
     }
     
