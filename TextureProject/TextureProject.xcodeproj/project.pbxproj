@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3360BBE526E2522800CF2CC1 /* KakaoFriendTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360BBE426E2522800CF2CC1 /* KakaoFriendTableNode.swift */; };
+		3363C43726E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3363C43626E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift */; };
+		337D2EF126E8ED1D00A0AC36 /* ProfileDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D2EF026E8ED1D00A0AC36 /* ProfileDisplayNode.swift */; };
+		337D2EF326E8F03900A0AC36 /* ProfileBottomDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D2EF226E8F03900A0AC36 /* ProfileBottomDisplayNode.swift */; };
 		3383C2A326DF66520037AD54 /* KakaoFriendCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383C2A226DF66520037AD54 /* KakaoFriendCellNode.swift */; };
 		3383C2A526DF66A30037AD54 /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383C2A426DF66A30037AD54 /* FriendListModel.swift */; };
 		3383C2A726DF677E0037AD54 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3383C2A626DF67720037AD54 /* AppleSDGothicNeoSB.ttf */; };
@@ -29,7 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3360BBE426E2522800CF2CC1 /* KakaoFriendTableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoFriendTableNode.swift; sourceTree = "<group>"; };
+		3363C43626E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoFriendHeaderNode.swift; sourceTree = "<group>"; };
+		337D2EF026E8ED1D00A0AC36 /* ProfileDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDisplayNode.swift; sourceTree = "<group>"; };
+		337D2EF226E8F03900A0AC36 /* ProfileBottomDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBottomDisplayNode.swift; sourceTree = "<group>"; };
 		3383C2A226DF66520037AD54 /* KakaoFriendCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoFriendCellNode.swift; sourceTree = "<group>"; };
 		3383C2A426DF66A30037AD54 /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		3383C2A626DF67720037AD54 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
@@ -66,6 +70,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		337D2EED26E8E8DC00A0AC36 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				337D2EEF26E8E8FC00A0AC36 /* Screen */,
+				33A7120726CC182400256A2A /* Node */,
+				33A7121B26CC304C00256A2A /* Model */,
+				33A7121726CC2FED00256A2A /* Extensions */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		337D2EEF26E8E8FC00A0AC36 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				33C86F5326DF56AB00F58363 /* TabBarController.swift */,
+				33C86F5526DF575000F58363 /* KakaoFriendVC.swift */,
+				3383C2AA26DF6CF80037AD54 /* FriendVC.swift */,
+				33A711F326CC13BA00256A2A /* ViewController.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
 		33A711E326CC13BA00256A2A = {
 			isa = PBXGroup;
 			children = (
@@ -87,27 +113,23 @@
 		33A711EE26CC13BA00256A2A /* TextureProject */ = {
 			isa = PBXGroup;
 			children = (
-				33A7122326CC337C00256A2A /* Info.plist */,
+				337D2EED26E8E8DC00A0AC36 /* Sources */,
 				33A7120926CC183600256A2A /* Resources */,
-				33A7121726CC2FED00256A2A /* Extensions */,
-				33A7120726CC182400256A2A /* Class */,
-				33A7121B26CC304C00256A2A /* Model */,
-				33A711F326CC13BA00256A2A /* ViewController.swift */,
-				33C86F5326DF56AB00F58363 /* TabBarController.swift */,
-				33C86F5526DF575000F58363 /* KakaoFriendVC.swift */,
-				3383C2AA26DF6CF80037AD54 /* FriendVC.swift */,
+				33A7122326CC337C00256A2A /* Info.plist */,
 			);
 			path = TextureProject;
 			sourceTree = "<group>";
 		};
-		33A7120726CC182400256A2A /* Class */ = {
+		33A7120726CC182400256A2A /* Node */ = {
 			isa = PBXGroup;
 			children = (
 				33A7120E26CC213500256A2A /* ApplistCellNode.swift */,
 				3383C2A226DF66520037AD54 /* KakaoFriendCellNode.swift */,
-				3360BBE426E2522800CF2CC1 /* KakaoFriendTableNode.swift */,
+				3363C43626E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift */,
+				337D2EF026E8ED1D00A0AC36 /* ProfileDisplayNode.swift */,
+				337D2EF226E8F03900A0AC36 /* ProfileBottomDisplayNode.swift */,
 			);
-			path = Class;
+			path = Node;
 			sourceTree = "<group>";
 		};
 		33A7120926CC183600256A2A /* Resources */ = {
@@ -283,18 +305,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3360BBE526E2522800CF2CC1 /* KakaoFriendTableNode.swift in Sources */,
 				33A7121D26CC308900256A2A /* UIColor+Extension.swift in Sources */,
 				33C86F5426DF56AB00F58363 /* TabBarController.swift in Sources */,
 				33A7121926CC2FFD00256A2A /* UIFont+Extension.swift in Sources */,
 				3383C2A526DF66A30037AD54 /* FriendListModel.swift in Sources */,
 				33A711F426CC13BA00256A2A /* ViewController.swift in Sources */,
 				33A7120F26CC213500256A2A /* ApplistCellNode.swift in Sources */,
+				337D2EF126E8ED1D00A0AC36 /* ProfileDisplayNode.swift in Sources */,
 				3383C2A326DF66520037AD54 /* KakaoFriendCellNode.swift in Sources */,
 				33C86F5626DF575000F58363 /* KakaoFriendVC.swift in Sources */,
 				33A7121126CC220000256A2A /* ApplistModel.swift in Sources */,
+				337D2EF326E8F03900A0AC36 /* ProfileBottomDisplayNode.swift in Sources */,
 				33A711F026CC13BA00256A2A /* AppDelegate.swift in Sources */,
 				3383C2AB26DF6CF80037AD54 /* FriendVC.swift in Sources */,
+				3363C43726E8A8F3002A3C2C /* KakaoFriendHeaderNode.swift in Sources */,
 				33A711F226CC13BA00256A2A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = TextureProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,6 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = TextureProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
