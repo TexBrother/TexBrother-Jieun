@@ -7,5 +7,5 @@ target 'Starbucks_Clone' do
 
   # Pods for Starbucks_Clone
     pod 'Texture'
-
+    pod 'Then'
 end
