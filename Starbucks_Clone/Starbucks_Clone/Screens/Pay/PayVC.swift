@@ -10,9 +10,13 @@ import UIKit
 
 class PayVC: ASDKViewController<ASDisplayNode> {
     
+    var emptyPayNode = PayEmptyNode()
+    
     override init() {
-        super.init(node: ASDisplayNode())
-        node.backgroundColor = .seaweedGreen
+        super.init(node: emptyPayNode)
+        self.node.backgroundColor = .white
+        self.node.automaticallyManagesSubnodes = true
+        self.node.automaticallyRelayoutOnSafeAreaChanges = true
     }
     
     required init?(coder: NSCoder) {
@@ -22,4 +26,21 @@ class PayVC: ASDKViewController<ASDisplayNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    // MARK: Layout
+//    private func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+//        let contentLayout = ASStackLayoutSpec (
+//            direction: .vertical,
+//            spacing: 0.0,
+//            justifyContent: .start,
+//            alignItems: .stretch,
+//            children: [
+//                emptyPayNode
+//            ]
+//        )
+//        let safeAreaInset: UIEdgeInsets = self.view.safeAreaInsets
+//        return ASInsetLayoutSpec (
+//            insets: safeAreaInset, child: contentLayout)
+//    }
+ 
 }
