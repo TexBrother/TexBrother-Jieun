@@ -32,7 +32,7 @@ class TBC: ASTabBarController {
         vc1.tabBarItem.imageInsets = UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0)
         
         // PayVC
-        let vc2 = PayVC()
+        let vc2 = ASNavigationController(rootViewController: PayVC())
         vc2.tabBarItem  = UITabBarItem(title: nil, image: UIImage(named: "PayUnSelected"), selectedImage: UIImage(named: "PaySelected"))
         vc2.tabBarItem.imageInsets = UIEdgeInsets(top: 9, left: 0, bottom: -8.5, right: 0)
         
