@@ -3,10 +3,15 @@
 //  Starbucks_Clone
 //
 //  Created by 황지은 on 2021/09/22.
-//
+// attr함수화
 
 import AsyncDisplayKit
 import Then
+import CoreGraphics
+
+enum payStatus {
+    case empty, fill
+}
 
 class PayVC: ASDKViewController<ASScrollNode> {
     
@@ -15,11 +20,17 @@ class PayVC: ASDKViewController<ASScrollNode> {
     }
     private lazy var flowLayout = UICollectionViewFlowLayout().then {
         $0.minimumInteritemSpacing = 1
+        $0.scrollDirection = .horizontal
     }
-    private lazy var cardCV = ASCollectionNode(collectionViewLayout: flowLayout).then {
+    private lazy var cardCV = ASCollectionNode(frame: .zero, collectionViewLayout: flowLayout).then {
+        $0.isPagingEnabled = true
         $0.delegate = self
         $0.dataSource = self
+        $0.backgroundColor = .systemBackground
+        $0.showsHorizontalScrollIndicator = false
+        $0.style.maxSize = CGSize(width: UIScreen.main.bounds.width, height: 500)
     }
+    
     private lazy var couponBtn = ASButtonNode()
     private lazy var egiftBtn = ASButtonNode()
     private lazy var partitionLine = ASDisplayNode().then {
@@ -42,17 +53,17 @@ class PayVC: ASDKViewController<ASScrollNode> {
         couponBtn.setAttributedTitle(couponString, for: .normal)
         egiftBtn.setAttributedTitle(egiftString, for: .normal)
         
+        node.automaticallyRelayoutOnSafeAreaChanges = true
         node.automaticallyManagesSubnodes = true
         node.automaticallyManagesContentSize = true
-        //node.automaticallyRelayoutOnSafeAreaChanges = true
-        node.layoutSpecBlock = { [weak self] (scrollNode, constraintedSize) -> ASLayoutSpec in
-            return self?.layoutSpecThatFits(constraintedSize) ?? ASLayoutSpec()
-        }
+        
         node.onDidLoad({ [weak self] _ in
             self?.makeNCTitleLargeMode()
         })
-        node.setNeedsLayout()
         node.backgroundColor = .white
+        node.layoutSpecBlock = { node, constrainedSize in
+            return self.layoutSpecThatFits(constrainedSize)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -67,13 +78,13 @@ class PayVC: ASDKViewController<ASScrollNode> {
             layoutArray = [ cardCV, bannerImage ]
         }
         else {
-            layoutArray = [ cardCV ,eventBtnStackSpec(), bannerImage ]
+            layoutArray = [ cardCV, eventBtnStackSpec(), bannerImage ]
         }
         
         return ASStackLayoutSpec (
             direction: .vertical,
             spacing: 10.0,
-            justifyContent: .center,
+            justifyContent: .start,
             alignItems: .center,
             children: layoutArray
         )
@@ -93,8 +104,8 @@ class PayVC: ASDKViewController<ASScrollNode> {
             ]
         )
     }
-    
 }
+
 extension PayVC: ASCollectionDelegate, ASCollectionDataSource, ASCollectionDelegateFlowLayout {
     
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
@@ -106,10 +117,21 @@ extension PayVC: ASCollectionDelegate, ASCollectionDataSource, ASCollectionDeleg
         }
     }
     
-    func collectionView(_ collectionView: ASCollectionView, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
-        return {
-            return PayCardCellNode(payDataModel: myPayCardData[indexPath.row])
+    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
+        let cellNodeBlock = { () -> ASCellNode in
+            let cellNode =
+            PayCardCellNode(payDataModel: myPayCardData[indexPath.row], division: .fill)
+            return cellNode
         }
+        return cellNodeBlock
+    }
+    
+    func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
+        return ASSizeRange(min: CGSize(width: 341, height: 444), max: CGSize(width: 341, height: 444))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 15)
     }
 }
 
