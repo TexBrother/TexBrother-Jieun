@@ -14,54 +14,44 @@ class CardDetailVC: ASDKViewController<ASDisplayNode> {
     //MARK: - UI
     private lazy var headTextLabelNode = ASTextNode()
     private lazy var editBtnNode = ASButtonNode()
-    private lazy var cardImageNode = ASImageNode()
+    private lazy var cardImageNode: ASImageNode = {
+        let node = ASImageNode()
+        node.contentMode = .scaleAspectFill
+        return node
+    }()
     private lazy var cardBalanceTextNode = ASTextNode()
     private lazy var balanceTextNode = ASTextNode()
-    private lazy var barcodeImageNode = ASImageNode()
+    private lazy var barcodeImageNode: ASImageNode = {
+        let node = ASImageNode()
+        node.contentMode = .scaleAspectFit
+        return node
+    }()
     private lazy var cardCodeTextNode = ASTextNode()
     private lazy var validTimeTextNode = ASTextNode()
     private lazy var timerTextNode = ASTextNode()
     private lazy var settingTV = ASTableNode().then {
-        $0.delegate = self
         $0.dataSource = self
         $0.backgroundColor = .white
-        $0.view.allowsSelection = true
-        $0.view.separatorStyle = .singleLine
-        $0.view.backgroundColor = .systemGray
     }
     
-    var cardName: String?
-    var cardImage: String?
-    var cardBalance: String?
-    var barcodeImage: String?
-    var cardCode: String?
-    
-    func getDataFromPayVC() {
-        print("hello?")
-        if let name = cardName {
-            headTextLabelNode.attributedText = setAttributedString(text: name, fontStyle: "AppleSDGothicNeoB00", fontSize: 30.0, fontColor: UIColor.black)
-        }
-        if let cardImg = cardImage {
-            cardImageNode.image = UIImage(named: cardImg)
-        }
-        if let balance = cardBalance {
-            cardBalanceTextNode.attributedText = setAttributedString(text: balance, fontStyle: "AppleSDGothicNeoSB00", fontSize: 18.0, fontColor: UIColor.black)
-        }
-        if let barcode = barcodeImage {
-            barcodeImageNode.image = UIImage(named: barcode)
-        }
-        if let code = cardCode {
-            cardCodeTextNode.attributedText = setAttributedString(text: code, fontStyle: "AppleSDGothicNeoM00", fontSize: 15.0, fontColor: UIColor.black)
-        }
-    }
-    
-    override init() {
+    init(cardData: PayCardData) {
         super.init(node: .init())
         self.node.backgroundColor = .white
-        getDataFromPayVC()
+        self.node.automaticallyManagesSubnodes = true
+        self.node.automaticallyRelayoutOnSafeAreaChanges = true
+        self.node.layoutSpecBlock = { [weak self] (node, constraintedSize) -> ASLayoutSpec in
+            return self?.layoutSpecThatFits(constraintedSize) ?? ASLayoutSpec()
+        }
+        balanceTextNode.attributedText = setAttributedString(text: "카드 잔액", fontStyle: "AppleSDGothicNeoR00", fontSize: 13.0, fontColor: UIColor.black)
         validTimeTextNode.attributedText = setAttributedString(text: "바코드 유효시간", fontStyle: "AppleSDGothicNeoM00", fontSize: 12.0, fontColor: UIColor.black)
         timerTextNode.attributedText = setAttributedString(text: "60:00", fontStyle: "AppleSDGothicNeoM00", fontSize: 12.0, fontColor: UIColor.seaweedGreen)
+        headTextLabelNode.attributedText = setAttributedString(text: cardData.cardName, fontStyle: "AppleSDGothicNeoB00", fontSize: 30.0, fontColor: UIColor.black)
+        cardImageNode.image = UIImage(named: cardData.cardImage)
+        cardBalanceTextNode.attributedText = setAttributedString(text: cardData.balance, fontStyle: "AppleSDGothicNeoB00", fontSize: 20.0, fontColor: UIColor.black)
+        barcodeImageNode.image = UIImage(named: cardData.cardBarcodeImage)
+        cardCodeTextNode.attributedText = setAttributedString(text: cardData.cardCode, fontStyle: "AppleSDGothicNeoM00", fontSize: 15.0, fontColor: UIColor.black)
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -69,6 +59,12 @@ class CardDetailVC: ASDKViewController<ASDisplayNode> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cardImageNode.layer.cornerRadius = 10.0
+        settingTV.view.allowsSelection = true
+        settingTV.view.separatorStyle = .none
+        settingTV.view.backgroundColor = .systemGray6
+        settingTV.view.showsVerticalScrollIndicator = true
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     // Attribute String 설정
@@ -79,43 +75,63 @@ class CardDetailVC: ASDKViewController<ASDisplayNode> {
         return attrString
     }
     
-    func topLayoutSpec() -> ASLayoutSpec {
+    func topCardLayoutSpec() -> ASLayoutSpec {
         
         let headTextEditBtnSepc = ASStackLayoutSpec(
             direction: .horizontal,
-            spacing: 30,
-            justifyContent: .spaceBetween,
+            spacing: 0.0,
+            justifyContent: .start,
             alignItems: .start,
             children: [
-                headTextLabelNode,
-                editBtnNode
+                headTextLabelNode
             ]
         )
         
         let balanceSpec = ASStackLayoutSpec(
             direction: .vertical,
-            spacing: 10.0,
+            spacing: 3.0,
             justifyContent: .spaceBetween,
             alignItems: .start,
             children: [
                 balanceTextNode,
                 cardBalanceTextNode
-            ])
+            ]
+        )
         
         cardImageNode.styled {
-            $0.width = ASDimension(unit: .points, value: 50)
-            $0.height = ASDimension(unit: .points, value: 30)
+            $0.width = ASDimension(unit: .points, value: 110)
+            $0.height = ASDimension(unit: .points, value: 80)
         }
         
         let cardImageBalanceSpec = ASStackLayoutSpec(
             direction: .horizontal,
             spacing: 10.0,
-            justifyContent: .spaceBetween,
+            justifyContent: .start,
             alignItems: .start,
             children: [
                 cardImageNode,
                 balanceSpec
-            ])
+            ]
+        )
+        
+        let cardAreaSpec = ASStackLayoutSpec(
+            direction: .vertical,
+            spacing: 35.0,
+            justifyContent: .start,
+            alignItems: .start,
+            children: [
+                headTextEditBtnSepc,
+                cardImageBalanceSpec
+            ]
+        )
+        
+        return ASInsetLayoutSpec(
+            insets: UIEdgeInsets(),
+            child: cardAreaSpec
+        )
+    }
+    
+    func topBarCodeLayoutSpec() -> ASLayoutSpec {
         
         let barcodeSpec = ASStackLayoutSpec(
             direction: .vertical,
@@ -125,41 +141,82 @@ class CardDetailVC: ASDKViewController<ASDisplayNode> {
             children: [
                 barcodeImageNode,
                 cardCodeTextNode
-            ])
+            ]
+        )
         
-        let finLayoutSpec = ASStackLayoutSpec(
-            direction: .vertical,
-            spacing: 20.0,
-            justifyContent: .spaceBetween,
-            alignItems: .start,
+        let timerSpec = ASStackLayoutSpec(
+            direction: .horizontal,
+            spacing: 5.0,
+            justifyContent: .center,
+            alignItems: .center,
             children: [
-                headTextEditBtnSepc,
-                cardImageBalanceSpec,
-                barcodeSpec
+                validTimeTextNode,
+                timerTextNode
+            ]
+        )
+        
+        let specNode = ASDisplayNode()
+        specNode.styled {
+            $0.height = ASDimension(unit: .points, value: 10.0)
+        }
+        
+        let barcodeAreaSpec = ASStackLayoutSpec(
+            direction: .vertical,
+            spacing: 10.0,
+            justifyContent: .center,
+            alignItems: .center,
+            children: [
+                barcodeSpec,
+                timerSpec,
+                specNode
+                
             ]
         )
         
         return ASInsetLayoutSpec(
-            insets: UIEdgeInsets(top: 5, left: 16, bottom: 0, right: 16),
-            child: finLayoutSpec)
+            insets: UIEdgeInsets(),
+            child: barcodeAreaSpec
+        )
+    }
+
+    
+    func topLayoutSpec() -> ASLayoutSpec {
+        
+        let contentLayout = ASStackLayoutSpec(
+            direction: .vertical,
+            spacing: 30.0,
+            justifyContent: .start,
+            alignItems: .stretch,
+            children: [
+                topCardLayoutSpec(),
+                topBarCodeLayoutSpec()
+            ]
+        )
+        
+        return ASInsetLayoutSpec (
+            insets: UIEdgeInsets(top: 100, left: 20, bottom: 0, right: 40),
+            child: contentLayout
+        )
     }
     
     private func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
         
         let contentLayout = ASStackLayoutSpec(
             direction: .vertical,
-            spacing: 0.0,
+            spacing: 10.0,
             justifyContent: .start,
-            alignItems: .center,
+            alignItems: .stretch,
             children: [
-            topLayoutSpec(),
-            settingTV
+                topLayoutSpec(),
+                settingTV.styled {
+                    $0.flexGrow = 1.0
+                }
             ]
         )
         
-        let safeAreaInset: UIEdgeInsets = self.view.safeAreaInsets
         return ASInsetLayoutSpec (
-            insets: safeAreaInset, child: contentLayout
+            insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            child: contentLayout
         )
     }
 }
@@ -175,15 +232,16 @@ extension CardDetailVC: ASTableDelegate, ASTableDataSource {
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
+        settingTV.delegate = self
         return SettingTVCellNode(settingModel: settingData[indexPath.row])
     }
     
     func tableNode(_ tableNode: ASTableNode, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRange(min: CGSize(width: 375, height: 300), max: CGSize(width: 375, height: 300))
+        return ASSizeRange(min: CGSize(width: 375, height: 60), max: CGSize(width: 375, height: 60))
     }
     
-    //tableView의 레이어 변경
+    //tableViewCell의 레이어 변경
     func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
-        node.backgroundColor = .systemGray
+        node.backgroundColor = .systemGray6
     }
 }

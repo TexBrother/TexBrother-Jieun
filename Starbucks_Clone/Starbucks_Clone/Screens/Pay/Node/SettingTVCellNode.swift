@@ -18,7 +18,6 @@ class SettingTVCellNode: ASCellNode {
     init(settingModel: PaySettingData) {
         super.init()
         automaticallyManagesSubnodes = true
-        
         iconNode.image = UIImage(named: settingModel.icon)
         descTextNode.attributedText = setAttributedString(text: settingModel.settingName, fontStyle: "AppleSDGothicNeoM00", fontSize: 15.0, fontColor: UIColor.black)
     }
@@ -33,7 +32,13 @@ class SettingTVCellNode: ASCellNode {
 }
 //MARK: - Layout
 extension SettingTVCellNode {
+    
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        
+        iconNode.styled {
+            $0.width = ASDimension(unit: .points, value: 20)
+            $0.height = ASDimension(unit: .points, value: 20)
+        }
         
         let settingLayout = ASStackLayoutSpec(
             direction: .horizontal,
@@ -47,7 +52,7 @@ extension SettingTVCellNode {
         )
         
         return ASInsetLayoutSpec(
-            insets: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 0),
+            insets: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
             child: settingLayout
         )
     }

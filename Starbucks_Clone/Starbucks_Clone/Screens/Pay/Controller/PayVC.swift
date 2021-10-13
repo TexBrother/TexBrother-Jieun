@@ -138,6 +138,12 @@ extension PayVC: ASCollectionDelegate, ASCollectionDataSource, ASCollectionDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 15)
     }
+    
+    func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
+//        CardDetailVC().getDataFromPayVC(cardData: myPayCardData[indexPath.row])
+        
+        self.navigationController?.pushViewController(CardDetailVC(cardData: myPayCardData[indexPath.row]), animated: true)
+    }
 }
 
 extension PayVC {
@@ -146,6 +152,7 @@ extension PayVC {
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.tintColor = .gray
         navigationController?.navigationBar.isHidden = false
     }
 }
