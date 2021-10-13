@@ -13,10 +13,10 @@ class TBC: ASTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabBar()
+        self.view.frame.size = CGSize(width: UIScreen.main.bounds.width, height: 812)
     }
     
     // MARK: - 탭바 만드는 함수
-    
     func setTabBar() {
         
         // 탭바 스타일 설정

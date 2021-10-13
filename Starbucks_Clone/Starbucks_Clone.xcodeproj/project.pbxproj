@@ -17,6 +17,7 @@
 		331C746526FACFD6003BF622 /* GiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C746426FACFD6003BF622 /* GiftVC.swift */; };
 		331C746726FACFDF003BF622 /* OtherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C746626FACFDF003BF622 /* OtherVC.swift */; };
 		331C746926FADFE8003BF622 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C746826FADFE8003BF622 /* UIColor+Extension.swift */; };
+		3329A6E0270DAAF500A6862D /* PayScrollNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329A6DF270DAAF500A6862D /* PayScrollNode.swift */; };
 		332D352B270490DF00625511 /* PayCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332D352A270490DF00625511 /* PayCardData.swift */; };
 		332D352D270499DA00625511 /* PayCardCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332D352C270499DA00625511 /* PayCardCellNode.swift */; };
 		BD7B13347D53D68F97A80B92 /* Pods_Starbucks_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22435EEA2BF5145D7E20B98 /* Pods_Starbucks_Clone.framework */; };
@@ -35,6 +36,7 @@
 		331C746426FACFD6003BF622 /* GiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftVC.swift; sourceTree = "<group>"; };
 		331C746626FACFDF003BF622 /* OtherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherVC.swift; sourceTree = "<group>"; };
 		331C746826FADFE8003BF622 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		3329A6DF270DAAF500A6862D /* PayScrollNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayScrollNode.swift; sourceTree = "<group>"; };
 		332D352A270490DF00625511 /* PayCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardData.swift; sourceTree = "<group>"; };
 		332D352C270499DA00625511 /* PayCardCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardCellNode.swift; sourceTree = "<group>"; };
 		3A071FF58455BBB481F804A5 /* Pods-Starbucks_Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starbucks_Clone.release.xcconfig"; path = "Target Support Files/Pods-Starbucks_Clone/Pods-Starbucks_Clone.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		331C749826FB53EA003BF622 /* Node */ = {
 			isa = PBXGroup;
 			children = (
+				3329A6DF270DAAF500A6862D /* PayScrollNode.swift */,
 				332D352C270499DA00625511 /* PayCardCellNode.swift */,
 			);
 			path = Node;
@@ -334,6 +337,7 @@
 				331C746526FACFD6003BF622 /* GiftVC.swift in Sources */,
 				331C746126FACFBD003BF622 /* PayVC.swift in Sources */,
 				332D352D270499DA00625511 /* PayCardCellNode.swift in Sources */,
+				3329A6E0270DAAF500A6862D /* PayScrollNode.swift in Sources */,
 				332D352B270490DF00625511 /* PayCardData.swift in Sources */,
 				331C743F26FACC1B003BF622 /* SceneDelegate.swift in Sources */,
 			);

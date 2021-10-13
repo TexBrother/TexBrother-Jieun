@@ -20,39 +20,25 @@ class PayCardCellNode: ASCellNode {
     let balanceLabelNode = ASTextNode()
     let installButtonNode = ASButtonNode()
     let lineDisplayNode = ASDisplayNode()
-    
-    
-    init(payDataModel: PayCardData) {
+
+    init(payDataModel: PayCardData, division: payStatus) {
         super.init()
         automaticallyManagesSubnodes = true
         
-        //cardImageNode
+        switch division {
+        case .empty:
+            print("empty")
+        case .fill:
+            print("fill")
+        }
+        self.backgroundColor = .black
         cardImageNode.image = UIImage(named: payDataModel.cardImage)
-        
-        //appNameLabelNode
-        let attrs = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeoM00", size: 13.0), NSAttributedString.Key.foregroundColor: UIColor.white]
-        let appNameString = NSAttributedString(string: payDataModel.appName, attributes: attrs as [NSAttributedString.Key : Any])
-        appNameLabelNode.attributedText = appNameString
-        
-        //appDescLabelNode
-        let attrs2 = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeoR00", size: 11.0), NSAttributedString.Key.foregroundColor: UIColor.white]
-        let appDescString = NSAttributedString(string: applistModel.appDesc, attributes: attrs2 as [NSAttributedString.Key : Any])
-        appDescLabelNode.attributedText = appDescString
-        
-        //installButtonNode
-        installButtonNode.layer.cornerRadius = 13
-        installButtonNode.backgroundColor = .buttonGrey
-        installButtonNode.setTitle("받기", with: .AppleSDGothicB(size: 12), with: .coralBlue, for: .normal)
-        
-        //lineDisplayNode
-        lineDisplayNode.layer.backgroundColor = UIColor.lineGrey.cgColor
     }
     
-    // 앱이름, 앱설명, 버튼, 선 LayoutSpec
-    func appListInfoLayoutSpec() -> ASLayoutSpec {
+    func payCellLayoutSpec() -> ASLayoutSpec {
         
         specNode.styled {
-            $0.height = ASDimension(unit: .points, value: 13.0)
+            $0.height = ASDimension(unit: .points, value: 19.0)
         }
         
         let textNodeSpec = ASStackLayoutSpec(
@@ -62,9 +48,7 @@ class PayCardCellNode: ASCellNode {
             justifyContent: .start,
             alignItems: .stretch,
             children: [
-                self.specNode,
-                self.appNameLabelNode,
-                self.appDescLabelNode,
+                self.specNode
             ]
         )
         
@@ -98,23 +82,23 @@ class PayCardCellNode: ASCellNode {
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-        let infoLayout = self.appListInfoLayoutSpec()
+        let infoLayout = self.payCellLayoutSpec()
         
-        let appImageLayout =
+        let payCellLayout =
             ASStackLayoutSpec(
                 direction: .horizontal,
                 spacing: 20.0,
                 justifyContent: .start,
                 alignItems: .stretch,
                 children: [
-                    self.appIconImageNode,
                     infoLayout
                 ]
             )
         
         return ASInsetLayoutSpec(
+            
             insets: UIEdgeInsets(),
-            child: appImageLayout
+            child: payCellLayout
         )
     }
 }
