@@ -3,7 +3,6 @@
 //  Starbucks_Clone
 //
 //  Created by 황지은 on 2021/09/22.
-// attr함수화
 
 import AsyncDisplayKit
 import Then
@@ -29,6 +28,7 @@ class PayVC: ASDKViewController<ASScrollNode> {
         $0.backgroundColor = .systemBackground
         $0.showsHorizontalScrollIndicator = false
         $0.style.maxSize = CGSize(width: UIScreen.main.bounds.width, height: 500)
+        $0.layer.cornerRadius = 15
     }
     
     private lazy var couponBtn = ASButtonNode()
@@ -78,7 +78,7 @@ class PayVC: ASDKViewController<ASScrollNode> {
             layoutArray = [ cardCV, bannerImage ]
         }
         else {
-            layoutArray = [ cardCV, eventBtnStackSpec(), bannerImage ]
+            layoutArray = [ cardCV, eventBtnStackSpec(), bannerImage.styled {$0.spacingAfter = 0} ]
         }
         
         return ASStackLayoutSpec (
@@ -86,7 +86,12 @@ class PayVC: ASDKViewController<ASScrollNode> {
             spacing: 10.0,
             justifyContent: .start,
             alignItems: .center,
-            children: layoutArray
+            children: [ cardCV,
+                        eventBtnStackSpec(),
+                        bannerImage.styled {
+                            $0.spacingAfter = 0
+                        }
+                      ]
         )
     }
     

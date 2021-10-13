@@ -17,6 +17,6 @@ struct PayCardData {
 }
 
 var myPayCardData: [PayCardData] = [
-    PayCardData(cardImage: "card1", cardName: "Thank You 카드", cardFavoriteState: true, balance: "2,300", cardBarcodeImage: "barcode", cardCode: "****_****_**36-6582"),
-    PayCardData(cardImage: "card2", cardName: "2018 Limited Edition 카드", cardFavoriteState: false, balance: "3,400", cardBarcodeImage: "barcode", cardCode: "****_****_**36-6582")
+    PayCardData(cardImage: "card1", cardName: "Thank You 카드", cardFavoriteState: true, balance: "2,300원", cardBarcodeImage: "barcode", cardCode: "****_****_**36-6582"),
+    PayCardData(cardImage: "card2", cardName: "2018 Limited Edition 카드", cardFavoriteState: false, balance: "3,400원", cardBarcodeImage: "barcode", cardCode: "****_****_**36-6582")
 ]
