@@ -20,6 +20,13 @@
 		3329A6E0270DAAF500A6862D /* PayScrollNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3329A6DF270DAAF500A6862D /* PayScrollNode.swift */; };
 		332D352B270490DF00625511 /* PayCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332D352A270490DF00625511 /* PayCardData.swift */; };
 		332D352D270499DA00625511 /* PayCardCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332D352C270499DA00625511 /* PayCardCellNode.swift */; };
+		338D27432716D1B900829005 /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 338D27422716D1B700829005 /* AppleSDGothicNeoB.ttf */; };
+		338D27442716D1BC00829005 /* AppleSDGothicNeoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 338D273F2716D1B700829005 /* AppleSDGothicNeoM.ttf */; };
+		338D27452716D1BE00829005 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 338D27402716D1B700829005 /* AppleSDGothicNeoR.ttf */; };
+		338D27462716D1C000829005 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 338D27412716D1B700829005 /* AppleSDGothicNeoSB.ttf */; };
+		338D27492716D91A00829005 /* CardDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338D27482716D91A00829005 /* CardDetailVC.swift */; };
+		338D274B2716E10200829005 /* PaySettingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338D274A2716E10200829005 /* PaySettingData.swift */; };
+		338D274D2716E19100829005 /* SettingTVCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338D274C2716E19100829005 /* SettingTVCellNode.swift */; };
 		BD7B13347D53D68F97A80B92 /* Pods_Starbucks_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22435EEA2BF5145D7E20B98 /* Pods_Starbucks_Clone.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +46,13 @@
 		3329A6DF270DAAF500A6862D /* PayScrollNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayScrollNode.swift; sourceTree = "<group>"; };
 		332D352A270490DF00625511 /* PayCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardData.swift; sourceTree = "<group>"; };
 		332D352C270499DA00625511 /* PayCardCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardCellNode.swift; sourceTree = "<group>"; };
+		338D273F2716D1B700829005 /* AppleSDGothicNeoM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AppleSDGothicNeoM.ttf; path = ../../../../TextureProject/TextureProject/Resources/Font/AppleSDGothicNeoM.ttf; sourceTree = "<group>"; };
+		338D27402716D1B700829005 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AppleSDGothicNeoR.ttf; path = ../../../../TextureProject/TextureProject/Resources/Font/AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
+		338D27412716D1B700829005 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AppleSDGothicNeoSB.ttf; path = ../../../../TextureProject/TextureProject/Resources/Font/AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
+		338D27422716D1B700829005 /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AppleSDGothicNeoB.ttf; path = ../../../../TextureProject/TextureProject/Resources/Font/AppleSDGothicNeoB.ttf; sourceTree = "<group>"; };
+		338D27482716D91A00829005 /* CardDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CardDetailVC.swift; sourceTree = "<group>"; };
+		338D274A2716E10200829005 /* PaySettingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaySettingData.swift; sourceTree = "<group>"; };
+		338D274C2716E19100829005 /* SettingTVCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTVCellNode.swift; sourceTree = "<group>"; };
 		3A071FF58455BBB481F804A5 /* Pods-Starbucks_Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starbucks_Clone.release.xcconfig"; path = "Target Support Files/Pods-Starbucks_Clone/Pods-Starbucks_Clone.release.xcconfig"; sourceTree = "<group>"; };
 		917EFED399AEA1D8C32B1627 /* Pods-Starbucks_Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starbucks_Clone.debug.xcconfig"; path = "Target Support Files/Pods-Starbucks_Clone/Pods-Starbucks_Clone.debug.xcconfig"; sourceTree = "<group>"; };
 		A22435EEA2BF5145D7E20B98 /* Pods_Starbucks_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starbucks_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +151,10 @@
 		331C745426FACDFF003BF622 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				338D27422716D1B700829005 /* AppleSDGothicNeoB.ttf */,
+				338D273F2716D1B700829005 /* AppleSDGothicNeoM.ttf */,
+				338D27402716D1B700829005 /* AppleSDGothicNeoR.ttf */,
+				338D27412716D1B700829005 /* AppleSDGothicNeoSB.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -144,9 +162,9 @@
 		331C745626FACE1F003BF622 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				338D27472716D8F300829005 /* Controller */,
 				332D3529270490CF00625511 /* Model */,
 				331C749826FB53EA003BF622 /* Node */,
-				331C746026FACFBD003BF622 /* PayVC.swift */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -196,6 +214,7 @@
 			children = (
 				3329A6DF270DAAF500A6862D /* PayScrollNode.swift */,
 				332D352C270499DA00625511 /* PayCardCellNode.swift */,
+				338D274C2716E19100829005 /* SettingTVCellNode.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -204,8 +223,18 @@
 			isa = PBXGroup;
 			children = (
 				332D352A270490DF00625511 /* PayCardData.swift */,
+				338D274A2716E10200829005 /* PaySettingData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		338D27472716D8F300829005 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				331C746026FACFBD003BF622 /* PayVC.swift */,
+				338D27482716D91A00829005 /* CardDetailVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		CC71FF290935690F070A421A /* Frameworks */ = {
@@ -275,7 +304,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				338D27462716D1C000829005 /* AppleSDGothicNeoSB.ttf in Resources */,
+				338D27452716D1BE00829005 /* AppleSDGothicNeoR.ttf in Resources */,
+				338D27432716D1B900829005 /* AppleSDGothicNeoB.ttf in Resources */,
 				331C744626FACC1D003BF622 /* Assets.xcassets in Resources */,
+				338D27442716D1BC00829005 /* AppleSDGothicNeoM.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +364,8 @@
 				331C743D26FACC1B003BF622 /* AppDelegate.swift in Sources */,
 				331C746326FACFCA003BF622 /* OrderVC.swift in Sources */,
 				331C745F26FACFB0003BF622 /* HomeVC.swift in Sources */,
+				338D27492716D91A00829005 /* CardDetailVC.swift in Sources */,
+				338D274D2716E19100829005 /* SettingTVCellNode.swift in Sources */,
 				331C746926FADFE8003BF622 /* UIColor+Extension.swift in Sources */,
 				331C746726FACFDF003BF622 /* OtherVC.swift in Sources */,
 				331C745D26FACF75003BF622 /* TBC.swift in Sources */,
@@ -338,6 +373,7 @@
 				331C746126FACFBD003BF622 /* PayVC.swift in Sources */,
 				332D352D270499DA00625511 /* PayCardCellNode.swift in Sources */,
 				3329A6E0270DAAF500A6862D /* PayScrollNode.swift in Sources */,
+				338D274B2716E10200829005 /* PaySettingData.swift in Sources */,
 				332D352B270490DF00625511 /* PayCardData.swift in Sources */,
 				331C743F26FACC1B003BF622 /* SceneDelegate.swift in Sources */,
 			);
